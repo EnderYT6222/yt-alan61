@@ -20,12 +20,12 @@
 <script>
 async function loadVideo() {
     const input = document.getElementById('videoURL').value;
-    if(!input) { alert('Video URL gir, Komutan!'); return; }
+    if(!input) { alert('URLEN NERDE OE'); return; }
 
     // Proxy URL mantığı: kendi sunucuna gönderip YouTube’dan çekiyoruz
     // Örnek proxy: https://invidious.nerdvpn.com/watch?v=VIDEO_ID
     const videoId = input.split('v=')[1] || input.split('/').pop();
-    const proxyURL = `https://invidious.nerdvpn.com/watch?v=${videoId}`;
+    const proxyURL = `https://yewtu.be/watch?v=${videoId}`;
 
     // Video player için basit embed
     const player = document.getElementById('videoPlayer');
