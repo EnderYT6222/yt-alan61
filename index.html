@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIT GUD SHAW GİT GUD GİT GUD SHAW GARAMA</title>
+<style>
+  body { background: #111; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; flex-direction: column; }
+  video { max-width: 90%; max-height: 70vh; border: 3px solid #6a0dad; border-radius: 10px; }
+  input, button { margin-top: 10px; padding: 8px; border-radius: 5px; border: none; }
+  button { background: #6a0dad; color: #fff; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>SHAW</h1>
+<video id="videoPlayer" controls></video>
+<input type="text" id="videoURL" placeholder="YouTube Video URL (veya proxy link)">
+<button onclick="loadVideo()">LOAD VIDEO</button>
+
+<script>
+async function loadVideo() {
+    const input = document.getElementById('videoURL').value;
+    if(!input) { alert('Video URL gir, Komutan!'); return; }
+
+    // Proxy URL mantığı: kendi sunucuna gönderip YouTube’dan çekiyoruz
+    // Örnek proxy: https://invidious.nerdvpn.com/watch?v=VIDEO_ID
+    const videoId = input.split('v=')[1] || input.split('/').pop();
+    const proxyURL = `https://invidious.nerdvpn.com/watch?v=${videoId}`;
+
+    // Video player için basit embed
+    const player = document.getElementById('videoPlayer');
+    player.src = proxyURL;
+    player.play().catch(()=>console.log('Wi-Fi engeli, ama biz sigma moddayız!'));
+}
+</script>
+</body>
+</html>
